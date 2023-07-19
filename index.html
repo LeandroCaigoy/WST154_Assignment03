@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WST154 - 07/11/2023</title>
+    <style>
+      #member {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #door {
+        width: 350px;
+        height: 80px;
+        background-color: rgb(246, 160, 84) ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        padding: 10px 30px;
+        background-color: rgb(180, 27, 21);
+        border: none;
+        margin: 5px;
+        font-size: 2em;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: rgb(255, 140, 9);
+      }
+      form {
+        padding: 40px;
+      }
+      input {
+        display: block;
+        padding: 10px;
+        margin: 20px;
+        font-size: 2em;
+      }
+      body {
+        background-image: url('./images/showroom.jpg');
+      }
+    </style>
+
+  </head>
+  <body>
+    <center> <h1>MEMBERS ONLY</h1> </center>
+    <center> <h4>WST154 - 07/11/23</h4> </center>
+
+  </body>
+
+
+    <div id="member">
+      <form>
+        <input id="name" type="text" placeholder="Member Name" />
+        <input id="pcode" type="text" placeholder="Promo Code" />
+      </form>
+
+      <div id="door">
+        <button id="enterButton" onclick="tryToEnter()">Submit</button>
+      </div>
+    </div>
+
+    <script>
+      let guestList = ["Ron", "Leo", "Don", "Dodong", "Koyah"];
+      let pcode;
+      let name = "Ron";
+
+      function tryToEnter() 
+      {
+        pcode = document.getElementById("pcode").value;
+        name = document.getElementById("name").value;
+
+        let onGuestList = guestList.find(function (guestName) {
+          return guestName == name;
+        });
+
+        if (onGuestList && pcode == 623) {
+          window.location = 'https://leandrocaigoy.github.io/WST157_Finals/promo.html';
+        } else {
+          window.location = 'stop.html';
+        }
+      }
+    </script>
+  </body>
+</html>
+<!--  document.getElementById("enterButton").style.backgroundColor = "lime";-->
+<!--  document.getElementById("enterButton").style.backgroundColor = "red"; -->
